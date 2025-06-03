@@ -33,8 +33,10 @@ public class ClienteService {
         if (optionalCliente.isPresent()) {
             Cliente clienteSistema = optionalCliente.get();
             clienteSistema.setCliNome(cliente.getCliNome());
+            clienteSistema.setCliCpf(cliente.getCliCpf());
             clienteSistema.setCliEmail(cliente.getCliEmail());
-            // adicione aqui outros campos conforme necessário
+            clienteSistema.setCliTelefone(cliente.getCliTelefone());
+            clienteSistema.setCliStatus(cliente.getCliStatus());
             repository.save(clienteSistema);
             return true;
         }

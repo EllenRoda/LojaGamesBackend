@@ -1,6 +1,10 @@
 package org.example.entities;
 
+import org.hibernate.validator.constraints.br.CNPJ;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,23 +17,35 @@ public class Fornecedor implements Serializable {
     @Column(name = "FOR_ID")
     private Long forId;
 
-    @Column(name = "FOR_NOME_FANTASIA")
+    @NotBlank(message = "Nome Fantasia é Obrigatório")
+    @Size(max = 100, message = "Nome Fantasia deve ter no máximo 100 Caracteres")
+    @Column(name = "FOR_NOME_FANTASIA", nullable = false, length = 100)
     private String forNomeFantasia;
 
-    @Column(name = "FOR_CNPJ", unique = true, length = 14)
+    @NotBlank(message = "CNPJ é Obrigatório")
+    @CNPJ(message = "CNPJ Inválido")
+    @Column(name = "FOR_CNPJ",nullable = false, unique = true, length = 18)
     private String forCnpj;
 
-    @Column(name = "FOR_RAZAO_SOCIAL")
+    @NotBlank(message = "Razão Social é Obrigatório")
+    @Size(max = 100, message = "Razão Social deve ter no máximo 100 Caracteres")
+    @Column(name = "FOR_RAZAO_SOCIAL", nullable = false, unique = true, length = 100)
     private String forRazaoSocial;
+
+    @NotBlank(message = "Status é Obrigatório")
+    @Size(max = 60, message = "Status deve ter no máximo 60 Caracteres")
+    @Column(name = "FOR_STATUS", nullable = false, length = 60)
+    private String forStatus;
 
     public Fornecedor() {
     }
 
-    public Fornecedor(Long forId, String forNome, String forNomeFantasia, String forCnpj, String forRazaoSocial) {
+    public Fornecedor(Long forId, String forNome, String forNomeFantasia, String forCnpj, String forRazaoSocial, String forStatus) {
         this.forId = forId;
         this.forNomeFantasia = forNomeFantasia;
         this.forCnpj = forCnpj;
         this.forRazaoSocial = forRazaoSocial;
+        this.forStatus = forStatus;
     }
 
     public Long getForId() {
@@ -64,4 +80,11 @@ public class Fornecedor implements Serializable {
         this.forRazaoSocial = forRazaoSocial;
     }
 
+    public String getForStatus() {
+        return forStatus;
+    }
+
+    public void setForStatus(String forStatus) {
+        this.forStatus = forStatus;
+    }
 }

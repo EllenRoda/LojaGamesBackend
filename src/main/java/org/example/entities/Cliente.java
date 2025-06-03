@@ -1,6 +1,11 @@
 package org.example.entities;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -11,27 +16,42 @@ public class Cliente implements Serializable {
     @Column(name = "CLI_ID")
     private Long cliId;
 
-    @Column(name = "CLI_NOME")
+    @NotBlank(message = "Nome é Obrigatório")
+    @Size(max = 100, message = "Nome deve ter no máximo 100 Caracteres")
+    @Column(name = "CLI_NOME", nullable = false, length = 100)
     private String cliNome;
 
-    @Column(name = "CLI_CPF", length = 11)
+    @NotBlank(message = "CPF é Obrigatório")
+    @CPF(message = "CPF Inválido")
+    @Column(name = "CLI_CPF", nullable = false, unique = true, length = 15)
     private String cliCpf;
 
-    @Column(name = "CLI_EMAIL")
+    @NotBlank(message = "Email é Obrigatório")
+    @Email(message = "Email Inválido")
+    @Size(max = 50, message = "Email deve ter no máximo 50 Caracteres")
+    @Column(name = "CLI_EMAIL", nullable = false, length = 50)
     private String cliEmail;
 
-    @Column(name = "CLI_TELEFONE", length = 14)
+    @NotBlank(message = "Telefone é Obrigatório")
+    @Size(max = 14, message = "Telefone deve ter no máximo 14 Caracteres")
+    @Column(name = "CLI_TELEFONE", nullable = false, length = 14)
     private String cliTelefone;
+
+    @NotBlank(message = "Status é Obrigatório")
+    @Size(max = 60, message = "Status deve ter no máximo 60 Caracteres")
+    @Column(name = "CLI_STATUS", nullable = false, length = 60)
+    private String cliStatus;
 
     public Cliente() {
     }
 
-    public Cliente(Long cliId, String cliNome, String cliCpf, String cliEmail, String cliTelefone) {
+    public Cliente(Long cliId, String cliNome, String cliCpf, String cliEmail, String cliTelefone, String cliStatus) {
         this.cliId = cliId;
         this.cliNome = cliNome;
         this.cliCpf = cliCpf;
         this.cliEmail = cliEmail;
         this.cliTelefone = cliTelefone;
+        this.cliStatus = cliStatus;
     }
 
     public Long getCliId() {
@@ -73,4 +93,8 @@ public class Cliente implements Serializable {
     public void setCliTelefone(String cliTelefone) {
         this.cliTelefone = cliTelefone;
     }
+
+    public String getCliStatus() { return cliStatus; }
+
+    public void setCliStatus(String cliStatus) { this.cliStatus = cliStatus; }
 }
