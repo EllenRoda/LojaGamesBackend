@@ -7,13 +7,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping(value = "/produtos")
+@Validated
 public class ProdutoResource {
 
 
@@ -34,7 +37,7 @@ public class ProdutoResource {
     }
 
     @PostMapping
-    public ResponseEntity<Produto> insert(@RequestBody Produto produto) {
+    public ResponseEntity<Produto> insert(@RequestBody @Valid Produto produto) {
         Produto createdProduto = produtoService.insert(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdProduto);
     }

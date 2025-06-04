@@ -15,7 +15,7 @@ public class Produto implements Serializable {
 
     @NotBlank(message = "Nome é obrigatório")
     @Size(max = 100, message = "Nome deve ter no máximo 100 caracteres")
-    @Column(name = "PRO_NOME", nullable = false, length = 100)
+    @Column(name = "PRO_NOME", length = 100, nullable = false)
     private String proNome;
 
     @NotNull(message = "Preço de Custo é obrigatório")
@@ -28,43 +28,52 @@ public class Produto implements Serializable {
     @Column(name = "PRO_PRECO_VENDA", precision = 10, scale = 2, nullable = false)
     private Double proPrecoVenda;
 
+    @NotBlank(message = "Marca obrigatorio ")
     @Size(max = 50, message = "Marca deve ter no máximo 50 caracteres")
-    @Column(name = "PRO_MARCA", length = 50)
+    @Column(name = "PRO_MARCA", length = 50, nullable = false)
     private String proMarca;
 
+    @NotBlank(message = "Modelo obrigatorio")
     @Size(max = 50, message = "Modelo deve ter no máximo 50 caracteres")
-    @Column(name = "PRO_MODELO", length = 50)
+    @Column(name = "PRO_MODELO", length = 50, nullable = false)
     private String proModelo;
 
+    @NotNull(message = "Estoque obrigatorio")
     @Min(value = 0, message = "Estoque não pode ser negativo")
     @Column(name = "PRO_ESTOQUE", nullable = false)
-    private int proEstoque;
+    private Integer proEstoque;
 
+    @NotBlank(message = "Cor é obrigatória")
     @Size(max = 30, message = "Cor deve ter no máximo 30 caracteres")
-    @Column(name = "PRO_COR", length = 30)
+    @Column(name = "PRO_COR", length = 30, nullable = false)
     private String proCor;
 
+    @NotBlank(message = "Material é obrigatória")
     @Size(max = 50, message = "Material deve ter no máximo 50 caracteres")
-    @Column(name = "PRO_MATERIAL", length = 50)
+    @Column(name = "PRO_MATERIAL", length = 50, nullable = false)
     private String proMaterial;
 
+    @NotBlank(message = "Fabricante é obrigatória")
     @Size(max = 100, message = "Fabricante deve ter no máximo 100 caracteres")
-    @Column(name = "PRO_FABRICANTE", length = 100)
+    @Column(name = "PRO_FABRICANTE", length = 100, nullable = false)
     private String proFabricante;
 
+    @NotBlank(message = "Descrição é obrigatória")
     @Size(max = 255, message = "Descrição deve ter no máximo 255 caracteres")
-    @Column(name = "PRO_DESCRICAO", length = 255)
+    @Column(name = "PRO_DESCRICAO", length = 255, nullable = false)
     private String proDescricao;
 
+    @NotBlank(message = "Categoria é obrigatória")
     @Size(max = 50, message = "Categoria deve ter no máximo 50 caracteres")
-    @Column(name = "PRO_CATEGORIA", length = 50)
+    @Column(name = "PRO_CATEGORIA", length = 50, nullable = false)
     private String proCategoria;
 
+    @NotBlank(message = "Código de Barras é obrigatória")
     @Size(max = 30, message = "Código de Barras deve ter no máximo 30 caracteres")
-    @Column(name = "PRO_CODIGO_BARRAS", length = 30)
+    @Column(name = "PRO_CODIGO_BARRAS", length = 30, nullable = false)
     private String proCodigoBarras;
 
-    @Column(name = "PRO_DATA_CADASTRO")
+    @Column(name = "PRO_DATA_CADASTRO", nullable = false)
     private LocalDateTime proDataCadastro;
 
     @Column(name = "PRO_DATA_ATUALIZACAO")
@@ -79,7 +88,7 @@ public class Produto implements Serializable {
     public Produto() {
     }
 
-    public Produto(Long proId, String proNome, Double proPrecoCusto, Double proPrecoVenda, String proMarca, String proModelo, int proEstoque, String proCor, String proMaterial, String proFabricante, String proDescricao, String proCategoria, String procodigoBarras, LocalDateTime proDataCadastro, LocalDateTime proDataAtualizacao, String proAtivo) {
+    public Produto(Long proId, String proNome, Double proPrecoCusto, Double proPrecoVenda, String proMarca, String proModelo, Integer proEstoque, String proCor, String proMaterial, String proFabricante, String proDescricao, String proCategoria, String procodigoBarras, LocalDateTime proDataCadastro, LocalDateTime proDataAtualizacao, String proAtivo) {
         this.proId = proId;
         this.proNome = proNome;
         this.proPrecoCusto = proPrecoCusto;
@@ -146,11 +155,11 @@ public class Produto implements Serializable {
         this.proModelo = proModelo;
     }
 
-    public int getProEstoque() {
+    public Integer getProEstoque() {
         return proEstoque;
     }
 
-    public void setProEstoque(int proEstoque) {
+    public void setProEstoque(Integer proEstoque) {
         this.proEstoque = proEstoque;
     }
 
