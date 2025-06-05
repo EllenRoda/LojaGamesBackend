@@ -32,7 +32,7 @@ public class FormaPagamento  implements Serializable {
     private String fpgPermiteParcelamento;
 
     @Min(value = 1, message = "Número máximo de parcelas deve ser no mínimo 1")
-    @Column(name = "FPG_NUMERO_MAXIMO_PARCELAS")
+    @Column(name = "FPG_NUMERO_MAXIMO_PARCELAS", nullable = false)
     private Integer fpgNumeroMaximoParcelas;
 
     @NotBlank(message = "Tipo é obrigatório")
@@ -41,11 +41,11 @@ public class FormaPagamento  implements Serializable {
     private String fpgTipo;
 
     @Min(value = 1, message = "Quantidade de parcelas deve ser no mínimo 1")
-    @Column(name = "FPG_QTD_PARCELA")
+    @Column(name = "FPG_QTD_PARCELA", nullable = false)
     private Integer fpgQtdParcela;
 
     @DecimalMin(value = "0.0", inclusive = true, message = "Taxa adicional deve ser maior ou igual a zero")
-    @Column(name = "FPG_TAXA_ADICIONA", precision = 10, scale = 2)
+    @Column(name = "FPG_TAXA_ADICIONA", precision = 10, scale = 2, nullable = false)
     private BigDecimal fpgTaxaAdiciona;
 
 
