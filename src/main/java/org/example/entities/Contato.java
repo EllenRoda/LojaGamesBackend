@@ -1,5 +1,7 @@
 package org.example.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
@@ -13,6 +15,11 @@ public class Contato implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CON_ID")
     private Long conId;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "CON_CLI_ID")
+    private Cliente conCliente;
 
     @Pattern(regexp = "\\(\\d{2}\\)\\d{5}-\\d{4}", message = "Celular deve estar no formato (xx)xxxxx-xxxx")
     @Column(name = "CON_CELULAR", length = 14)
@@ -31,8 +38,9 @@ public class Contato implements Serializable {
     public Contato() {
     }
 
-    public Contato(Long conId, String conCelular, String conTelefoneComercial, String conEmail) {
+    public Contato(Long conId, Cliente conCliente, String conCelular, String conTelefoneComercial, String conEmail) {
         this.conId = conId;
+        this.conCliente = conCliente;
         this.conCelular = conCelular;
         this.conTelefoneComercial = conTelefoneComercial;
         this.conEmail = conEmail;
@@ -44,6 +52,14 @@ public class Contato implements Serializable {
 
     public void setConId(Long conId) {
         this.conId = conId;
+    }
+
+    public Cliente getConCliente() {
+        return conCliente;
+    }
+
+    public void setConCliente(Cliente conCliente) {
+        this.conCliente = conCliente;
     }
 
     public String getConCelular() {

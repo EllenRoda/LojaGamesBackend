@@ -1,9 +1,8 @@
 package org.example.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 @Entity
 public class Endereco implements Serializable {
@@ -13,41 +12,35 @@ public class Endereco implements Serializable {
     @Column(name = "END_ID")
     private Long endId;
 
-    @NotBlank(message = "Rua é obrigatória")
-    @Size(max = 100, message = "Rua deve ter no máximo 100 caracteres")
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "END_CLI_ID")
+    private Cliente endCliente;
+
     @Column(name = "END_RUA", nullable = false, length = 100)
     private String endRua;
 
-    @NotBlank(message = "Número é obrigatório")
-    @Size(max = 10, message = "Número deve ter no máximo 10 caracteres")
     @Column(name = "END_NUMERO", nullable = false, length = 10)
     private String endNumero;
 
-    @NotBlank(message = "Cidade é obrigatória")
-    @Size(max = 60, message = "Cidade deve ter no máximo 60 caracteres")
     @Column(name = "END_CIDADE", nullable = false, length = 60)
     private String endCidade;
 
-    @NotBlank(message = "CEP é obrigatório")
-    @Pattern(regexp = "\\d{8}", message = "CEP deve conter exatamente 8 dígitos numéricos")
     @Column(name = "END_CEP", nullable = false, length = 8)
     private String endCep;
 
-    @NotBlank(message = "Estado é obrigatório")
-    @Pattern(regexp = "[A-Z]{2}", message = "Estado deve conter exatamente 2 letras maiúsculas (UF)")
     @Column(name = "END_ESTADO", nullable = false, length = 2)
     private String endEstado;
 
-    @NotBlank(message = "País é obrigatório")
-    @Size(max = 60, message = "País deve ter no máximo 60 caracteres")
     @Column(name = "END_PAIS", nullable = false, length = 60)
     private String endPais;
 
     public Endereco() {
     }
 
-    public Endereco(Long endId, String endRua, String endNumero, String endCidade, String endCep, String endEstado, String endPais) {
+    public Endereco(Long endId, Cliente endCliente, String endRua, String endNumero, String endCidade, String endCep, String endEstado, String endPais) {
         this.endId = endId;
+        this.endCliente = endCliente;
         this.endRua = endRua;
         this.endNumero = endNumero;
         this.endCidade = endCidade;
@@ -62,6 +55,14 @@ public class Endereco implements Serializable {
 
     public void setEndId(Long endId) {
         this.endId = endId;
+    }
+
+    public Cliente getEndCliente() {
+        return endCliente;
+    }
+
+    public void setEndCliente(Cliente endCliente) {
+        this.endCliente = endCliente;
     }
 
     public String getEndRua() {
