@@ -26,6 +26,9 @@ public class Endereco implements Serializable {
     @Column(name = "END_CIDADE", nullable = false, length = 60)
     private String endCidade;
 
+    @Column(name = "END_BAIRRO", nullable = false, length = 60)
+    private String endBairro;
+
     @Column(name = "END_CEP", nullable = false, length = 8)
     private String endCep;
 
@@ -38,12 +41,13 @@ public class Endereco implements Serializable {
     public Endereco() {
     }
 
-    public Endereco(Long endId, Cliente endCliente, String endRua, String endNumero, String endCidade, String endCep, String endEstado, String endPais) {
+    public Endereco(Long endId, Cliente endCliente, String endRua, String endNumero, String endCidade, String endBairro, String endCep, String endEstado, String endPais) {
         this.endId = endId;
         this.endCliente = endCliente;
         this.endRua = endRua;
         this.endNumero = endNumero;
         this.endCidade = endCidade;
+        this.endBairro = endBairro;
         this.endCep = endCep;
         this.endEstado = endEstado;
         this.endPais = endPais;
@@ -87,6 +91,14 @@ public class Endereco implements Serializable {
 
     public void setEndCidade(String endCidade) {
         this.endCidade = endCidade;
+    }
+
+    public String getEndBairro() {
+        return endBairro;
+    }
+
+    public void setEndBairro(String endBairro) {
+        this.endBairro = endBairro;
     }
 
     public String getEndCep() {

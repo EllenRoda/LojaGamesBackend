@@ -19,7 +19,7 @@ public class ClienteResource {
 
     @GetMapping
     public ResponseEntity<List<Cliente>> getAll() {
-        List<Cliente> clientes = clienteService.getAll();
+        List<Cliente> clientes = clienteService.findAll();
         return ResponseEntity.ok(clientes);
     }
 
