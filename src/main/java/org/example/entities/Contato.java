@@ -43,15 +43,20 @@ public class Contato implements Serializable {
     public Contato() {
     }
 
-    public Contato(Long conId, Cliente conCliente, Fornecedor conFornecedor, String conCelular, String conTelefoneComercial, String conEmail) {
+    public Contato(Long conId, Cliente conCliente, String conCelular, String conTelefoneComercial, String conEmail) {
         this.conId = conId;
         this.conCliente = conCliente;
+        this.conCelular = conCelular;
+        this.conTelefoneComercial = conTelefoneComercial;
+        this.conEmail = conEmail;
+    }
+    public Contato(Long conId, Fornecedor conFornecedor, String conCelular, String conTelefoneComercial, String conEmail) {
+        this.conId = conId;
         this.conFornecedor = conFornecedor;
         this.conCelular = conCelular;
         this.conTelefoneComercial = conTelefoneComercial;
         this.conEmail = conEmail;
     }
-
     public Long getConId() {
         return conId;
     }

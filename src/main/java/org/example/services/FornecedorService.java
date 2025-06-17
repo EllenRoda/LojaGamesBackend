@@ -33,7 +33,7 @@ public class FornecedorService {
 
     public Fornecedor insert(Fornecedor obj){
         try {
-            obj.setForCnpj(null);
+            obj.setForId(null);
             obj = repository.save(obj);
             enderecoRepository.saveAll(obj.getEnderecos());
             return obj;
@@ -47,7 +47,6 @@ public class FornecedorService {
 
             // Atualiza os dados do Fornecedor
             entity.setForNomeFantasia(objDto.getForNomeFantasia());
-            entity.setForCnpj(objDto.getForCnpj());
             entity.setForRazaoSocial(objDto.getForRazaoSocial());
             entity.setForStatus(objDto.getForStatus());
 
@@ -89,8 +88,8 @@ public class FornecedorService {
         }
     }
 
-    /*public Fornecedor fromDTO(FornecedorDTO objDto){
-        Fornecedor forne = new Fornecedor(null, objDto.getForNomeFantasia(), objDto.getForCnpj(), objDto.getForRazaoSocial(), objDto.getForStatus());
+    public Fornecedor fromDTO(FornecedorDTO objDto){
+        Fornecedor forne = new Fornecedor(null, objDto.getForNomeFantasia(), objDto.getForRazaoSocial(), objDto.getForStatus());
         Endereco ender = new Endereco(null, forne, objDto.getEndRua(), objDto.getEndNumero(), objDto.getEndCidade(), objDto.getEndBairro(), objDto.getEndCep(), objDto.getEndEstado(), objDto.getEndPais());
         Contato contat = new Contato(null, forne, objDto.getConCelular(), objDto.getConTelefoneComercial(), objDto.getConEmail());
 
@@ -98,7 +97,7 @@ public class FornecedorService {
         forne.getContatos().add(contat);
 
         return forne;
-    }*/
+    }
 
     public FornecedorDTO toNewDTO(Fornecedor obj){
         FornecedorDTO dto = new FornecedorDTO();
@@ -106,7 +105,6 @@ public class FornecedorService {
         // Mapeie os atributos comuns entre Fornecedor e FornecedorNewDTO
         dto.setForId(obj.getForId());
         dto.setForNomeFantasia(obj.getForNomeFantasia());
-        dto.setForCnpj(obj.getForCnpj());
         dto.setForRazaoSocial(obj.getForRazaoSocial());
         dto.setForStatus(obj.getForStatus());
 

@@ -1,10 +1,15 @@
 package org.example.dto;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import javax.persistence.Column;
+import javax.validation.constraints.Email;
 
 public class ClienteDTO {
     private Long cliId;
     private String cliNome;
+
+    @CPF
     private String cliCpf;
     private String cliStatus;
 
@@ -20,6 +25,8 @@ public class ClienteDTO {
     // Contato
     private String conCelular;
     private String conTelefoneComercial;
+
+    @Email
     private String conEmail;
 
     public ClienteDTO() {

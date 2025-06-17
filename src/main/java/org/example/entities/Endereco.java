@@ -46,9 +46,20 @@ public class Endereco implements Serializable {
     public Endereco() {
     }
 
-    public Endereco(Long endId, Cliente endCliente, Fornecedor endFornecedor, String endRua, String endNumero, String endCidade, String endBairro, String endCep, String endEstado, String endPais) {
+    public Endereco(Long endId, Cliente endCliente, String endRua, String endNumero, String endCidade, String endBairro, String endCep, String endEstado, String endPais) {
         this.endId = endId;
         this.endCliente = endCliente;
+        this.endRua = endRua;
+        this.endNumero = endNumero;
+        this.endCidade = endCidade;
+        this.endBairro = endBairro;
+        this.endCep = endCep;
+        this.endEstado = endEstado;
+        this.endPais = endPais;
+    }
+
+    public Endereco(Long endId, Fornecedor endFornecedor, String endRua, String endNumero, String endCidade, String endBairro, String endCep, String endEstado, String endPais) {
+        this.endId = endId;
         this.endFornecedor = endFornecedor;
         this.endRua = endRua;
         this.endNumero = endNumero;

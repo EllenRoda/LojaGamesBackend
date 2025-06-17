@@ -26,9 +26,6 @@ public class Fornecedor implements Serializable {
     @Column(name = "FOR_NOME_FANTASIA", nullable = false, length = 100)
     private String forNomeFantasia;
 
-    @Column(name = "FOR_CNPJ",nullable = false, unique = true, length = 18)
-    private String forCnpj;
-
     @Column(name = "FOR_RAZAO_SOCIAL", nullable = false, unique = true, length = 100)
     private String forRazaoSocial;
 
@@ -38,10 +35,9 @@ public class Fornecedor implements Serializable {
     public Fornecedor() {
     }
 
-    public Fornecedor(Long forId, String forNome, String forNomeFantasia, String forCnpj, String forRazaoSocial, String forStatus) {
+    public Fornecedor(Long forId, String forNomeFantasia, String forRazaoSocial, String forStatus) {
         this.forId = forId;
         this.forNomeFantasia = forNomeFantasia;
-        this.forCnpj = forCnpj;
         this.forRazaoSocial = forRazaoSocial;
         this.forStatus = forStatus;
     }
@@ -60,14 +56,6 @@ public class Fornecedor implements Serializable {
 
     public void setForNomeFantasia(String forNomeFantasia) {
         this.forNomeFantasia = forNomeFantasia;
-    }
-
-    public String getForCnpj() {
-        return forCnpj;
-    }
-
-    public void setForCnpj(String forCnpj) {
-        this.forCnpj = forCnpj;
     }
 
     public String getForRazaoSocial() {

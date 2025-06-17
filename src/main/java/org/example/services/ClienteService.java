@@ -33,7 +33,7 @@ public class ClienteService {
     }
     public Cliente insert(Cliente obj){
         try {
-            obj.setCliCpf(null);
+            obj.setCliId(null);
             obj = repository.save(obj);
             enderecoRepository.saveAll(obj.getEnderecos());
             return obj;
@@ -90,11 +90,11 @@ public class ClienteService {
 
     public Cliente fromDTO(ClienteDTO objDto) {
         Cliente clien = new Cliente(null, objDto.getCliNome(), objDto.getCliCpf(), objDto.getCliStatus());
-        /*Endereco ender = new Endereco(null, clien, objDto.getEndRua(), objDto.getEndNumero(), objDto.getEndCidade(), objDto.getEndBairro(), objDto.getEndCep(), objDto.getEndEstado(), objDto.getEndPais());
+        Endereco ender = new Endereco(null, clien, objDto.getEndRua(), objDto.getEndNumero(), objDto.getEndCidade(), objDto.getEndBairro(), objDto.getEndCep(), objDto.getEndEstado(), objDto.getEndPais());
         Contato contat = new Contato(null, clien, objDto.getConCelular(), objDto.getConTelefoneComercial(), objDto.getConEmail());
 
         clien.getEnderecos().add(ender);
-        clien.getContatos().add(contat);*/
+        clien.getContatos().add(contat);
 
         return clien;
     }

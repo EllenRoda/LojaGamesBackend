@@ -7,7 +7,6 @@ import javax.persistence.Column;
 public class FornecedorDTO {
     private Long forId;
     private String forNomeFantasia;
-    private String forCnpj;
     private String forRazaoSocial;
     private String forStatus;
 
@@ -42,14 +41,6 @@ public class FornecedorDTO {
 
     public void setForNomeFantasia(String forNomeFantasia) {
         this.forNomeFantasia = forNomeFantasia;
-    }
-
-    public String getForCnpj() {
-        return forCnpj;
-    }
-
-    public void setForCnpj(String forCnpj) {
-        this.forCnpj = forCnpj;
     }
 
     public String getForRazaoSocial() {
