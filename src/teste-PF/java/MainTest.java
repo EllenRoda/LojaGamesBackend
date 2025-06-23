@@ -44,13 +44,12 @@ public class MainTest {
             ativoSelect.click();
 
 // Seleciona "Sim" (valor true)
-            WebElement opcaoSim = wait.until(ExpectedConditions.elementToBeClickable(
-                    By.xpath("//mat-option[.//span[contains(text(),'Ativo')]]")));
+            WebElement opcaoSim = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//mat-option[.//span[contains(text(),'Ativo')]]")));
             opcaoSim.click();
 
 // Data (campo de data pode ser complexo, se aceitar texto direto)
             WebElement dataInput = driver.findElement(By.name("proDataCadastro"));
-            dataInput.sendKeys("23/06/2025"); // Formato pode variar conforme localidade
+            dataInput.sendKeys("6/23/2025"); // Formato pode variar conforme localidade
 
 // Clica no botão Salvar
             WebElement btnSalvar = driver.findElement(By.xpath("/html/body/app-root/body/app-nav/mat-sidenav-container/mat-sidenav-content/app-product-create/mat-card/button[1]"));
