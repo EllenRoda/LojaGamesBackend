@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class MainTest {
+public class MainTestCreate {
 
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
