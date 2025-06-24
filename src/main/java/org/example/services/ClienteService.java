@@ -49,6 +49,8 @@ public class ClienteService {
             // Atualiza os dados do Cliente
             entity.setCliNome(objDto.getCliNome());
             entity.setCliCpf(objDto.getCliCpf());
+            entity.setDataNascimento(objDto.getDataNascimento());
+            entity.setFormaPagamento(objDto.getFormaPagamento());
             entity.setCliStatus(objDto.getCliStatus());
 
             // Atualiza o Endereço do Cliente
@@ -89,7 +91,7 @@ public class ClienteService {
     }
 
     public Cliente fromDTO(ClienteDTO objDto) {
-        Cliente clien = new Cliente(null, objDto.getCliNome(), objDto.getCliCpf(), objDto.getCliStatus());
+        Cliente clien = new Cliente(null, objDto.getCliNome(), objDto.getCliCpf(), objDto.getCliStatus(), objDto.getDataNascimento(), objDto.getFormaPagamento());
         Endereco ender = new Endereco(null, clien, objDto.getEndRua(), objDto.getEndNumero(), objDto.getEndCidade(), objDto.getEndBairro(), objDto.getEndCep(), objDto.getEndEstado(), objDto.getEndPais());
         Contato contat = new Contato(null, clien, objDto.getConCelular(), objDto.getConTelefoneComercial(), objDto.getConEmail());
 
@@ -106,6 +108,8 @@ public class ClienteService {
         dto.setCliNome(obj.getCliNome());
         dto.setCliCpf(obj.getCliCpf());
         dto.setCliStatus(obj.getCliStatus());
+        dto.setDataNascimento(obj.getDataNascimento());
+        dto.setFormaPagamento(obj.getFormaPagamento());
 
         // Atributos específicos de Endereco
         Endereco endereco = obj.getEnderecos().get(0);

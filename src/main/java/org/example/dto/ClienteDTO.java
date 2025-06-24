@@ -12,6 +12,8 @@ public class ClienteDTO {
     @CPF
     private String cliCpf;
     private String cliStatus;
+    private String dataNascimento;
+    private String formaPagamento;
 
     // Endereco
     private String endRua;
@@ -142,5 +144,21 @@ public class ClienteDTO {
 
     public void setConEmail(String conEmail) {
         this.conEmail = conEmail;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(String formaPagamento) {
+        this.formaPagamento = formaPagamento;
     }
 }

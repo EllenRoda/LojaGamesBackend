@@ -28,14 +28,22 @@ public class Cliente implements Serializable {
     @Column(name = "CLI_STATUS", nullable = false, length = 60)
     private String cliStatus;
 
+    @Column(name = "CLI_DATA_NASCIMENTO", nullable = false, length = 60)
+    private String dataNascimento;
+    @Column(name = "CLI_FORMA_PAGAMENTO", nullable = false, length = 60)
+    private String formaPagamento;
+
+
     public Cliente() {
     }
 
-    public Cliente(Long cliId, String cliNome, String cliCpf, String cliStatus) {
+    public Cliente(Long cliId, String cliNome, String cliCpf, String cliStatus, String dataNascimento, String formaPagamento) {
         this.cliId = cliId;
         this.cliNome = cliNome;
         this.cliCpf = cliCpf;
         this.cliStatus = cliStatus;
+        this.dataNascimento = dataNascimento;
+        this.formaPagamento = formaPagamento;
     }
 
     public Long getCliId() {
@@ -80,5 +88,21 @@ public class Cliente implements Serializable {
 
     public void setContatos(List<Contato> contatos) {
         this.contatos = contatos;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(String formaPagamento) {
+        this.formaPagamento = formaPagamento;
     }
 }

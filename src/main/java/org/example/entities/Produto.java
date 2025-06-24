@@ -13,6 +13,10 @@ public class Produto implements Serializable {
     @Column(name = "PRO_ID")
     private Long proId;
 
+    @ManyToOne
+    @JoinColumn(name = "FOR_ID")
+    private Fornecedor idFornecedor;
+
     @NotBlank(message = "Nome é obrigatório")
     @Size(max = 100, message = "Nome deve ter no máximo 100 caracteres")
     @Column(name = "PRO_NOME", length = 100, nullable = false)
@@ -88,8 +92,9 @@ public class Produto implements Serializable {
     public Produto() {
     }
 
-    public Produto(Long proId, String proNome, Double proPrecoCusto, Double proPrecoVenda, String proMarca, String proModelo, Integer proEstoque, String proCor, String proMaterial, String proFabricante, String proDescricao, String proCategoria, String procodigoBarras, LocalDateTime proDataCadastro, LocalDateTime proDataAtualizacao, String proAtivo) {
+    public Produto(Long proId, Fornecedor idFornecedor, String proNome, Double proPrecoCusto, Double proPrecoVenda, String proMarca, String proModelo, Integer proEstoque, String proCor, String proMaterial, String proFabricante, String proDescricao, String proCategoria, String proCodigoBarras, LocalDateTime proDataCadastro, LocalDateTime proDataAtualizacao, String proAtivo) {
         this.proId = proId;
+        this.idFornecedor = idFornecedor;
         this.proNome = proNome;
         this.proPrecoCusto = proPrecoCusto;
         this.proPrecoVenda = proPrecoVenda;
@@ -101,7 +106,7 @@ public class Produto implements Serializable {
         this.proFabricante = proFabricante;
         this.proDescricao = proDescricao;
         this.proCategoria = proCategoria;
-        this.proCodigoBarras = procodigoBarras;
+        this.proCodigoBarras = proCodigoBarras;
         this.proDataCadastro = proDataCadastro;
         this.proDataAtualizacao = proDataAtualizacao;
         this.proAtivo = proAtivo;
@@ -113,6 +118,14 @@ public class Produto implements Serializable {
 
     public void setProId(Long proId) {
         this.proId = proId;
+    }
+
+    public Fornecedor getIdFornecedor() {
+        return idFornecedor;
+    }
+
+    public void setIdFornecedor(Fornecedor idFornecedor) {
+        this.idFornecedor = idFornecedor;
     }
 
     public String getProNome() {
