@@ -23,6 +23,8 @@ public class ClienteDTO {
     private String endCep;
     private String endEstado;
     private String endPais;
+    private String endComplemento;
+    private String endTipoResidencia;
 
     // Contato
     private String conCelular;
@@ -160,5 +162,21 @@ public class ClienteDTO {
 
     public void setFormaPagamento(String formaPagamento) {
         this.formaPagamento = formaPagamento;
+    }
+
+    public String getEndComplemento() {
+        return endComplemento;
+    }
+
+    public void setEndComplemento(String endComplemento) {
+        this.endComplemento = endComplemento;
+    }
+
+    public String getEndTipoResidencia() {
+        return endTipoResidencia;
+    }
+
+    public void setEndTipoResidencia(String endTipoResidencia) {
+        this.endTipoResidencia = endTipoResidencia;
     }
 }

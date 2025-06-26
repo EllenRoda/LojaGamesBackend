@@ -3,12 +3,15 @@ package org.example.dto;
 
 
 import javax.persistence.Column;
+import java.time.LocalDateTime;
 
 public class FornecedorDTO {
     private Long forId;
     private String forNomeFantasia;
     private String forRazaoSocial;
     private String forStatus;
+    private LocalDateTime forDataCadastro;
+    private String forResponsavel;
 
     // Endereco
     private String endRua;
@@ -137,5 +140,21 @@ public class FornecedorDTO {
 
     public void setConEmail(String conEmail) {
         this.conEmail = conEmail;
+    }
+
+    public LocalDateTime getForDataCadastro() {
+        return forDataCadastro;
+    }
+
+    public void setForDataCadastro(LocalDateTime forDataCadastro) {
+        this.forDataCadastro = forDataCadastro;
+    }
+
+    public String getForResponsavel() {
+        return forResponsavel;
+    }
+
+    public void setForResponsavel(String forResponsavel) {
+        this.forResponsavel = forResponsavel;
     }
 }

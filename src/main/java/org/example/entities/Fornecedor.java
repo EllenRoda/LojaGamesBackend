@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,14 +33,22 @@ public class Fornecedor implements Serializable {
     @Column(name = "FOR_STATUS", nullable = false, length = 60)
     private String forStatus;
 
+    @Column(name = "FOR_DATA_CADASTRO", nullable = false)
+    private LocalDateTime forDataCadastro;
+
+    @Column(name = "FOR_RESPONSAVEL", nullable = false, length = 60)
+    private String forResponsavel;
+
     public Fornecedor() {
     }
 
-    public Fornecedor(Long forId, String forNomeFantasia, String forRazaoSocial, String forStatus) {
+    public Fornecedor(Long forId, String forNomeFantasia, String forRazaoSocial, String forStatus, LocalDateTime forDataCadastro, String forResponsavel) {
         this.forId = forId;
         this.forNomeFantasia = forNomeFantasia;
         this.forRazaoSocial = forRazaoSocial;
         this.forStatus = forStatus;
+        this.forDataCadastro = forDataCadastro;
+        this.forResponsavel = forResponsavel;
     }
 
     public Long getForId() {
@@ -88,5 +97,21 @@ public class Fornecedor implements Serializable {
 
     public void setContatos(List<Contato> contatos) {
         this.contatos = contatos;
+    }
+
+    public LocalDateTime getForDataCadastro() {
+        return forDataCadastro;
+    }
+
+    public void setForDataCadastro(LocalDateTime forDataCadastro) {
+        this.forDataCadastro = forDataCadastro;
+    }
+
+    public String getForResponsavel() {
+        return forResponsavel;
+    }
+
+    public void setForResponsavel(String forResponsavel) {
+        this.forResponsavel = forResponsavel;
     }
 }

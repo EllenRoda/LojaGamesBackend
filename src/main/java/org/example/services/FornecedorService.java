@@ -51,6 +51,8 @@ public class FornecedorService {
             entity.setForNomeFantasia(objDto.getForNomeFantasia());
             entity.setForRazaoSocial(objDto.getForRazaoSocial());
             entity.setForStatus(objDto.getForStatus());
+            entity.setForDataCadastro(objDto.getForDataCadastro());
+            entity.setForResponsavel(objDto.getForResponsavel());
 
             // Atualiza o Endereço do Fornecedor
             Endereco endereco = entity.getEnderecos().get(0);
@@ -91,7 +93,7 @@ public class FornecedorService {
     }
 
     public Fornecedor fromDTO(FornecedorDTO objDto){
-        Fornecedor forne = new Fornecedor(null, objDto.getForNomeFantasia(), objDto.getForRazaoSocial(), objDto.getForStatus());
+        Fornecedor forne = new Fornecedor(null, objDto.getForNomeFantasia(), objDto.getForRazaoSocial(), objDto.getForStatus(), objDto.getForDataCadastro(), objDto.getForResponsavel());
         Endereco ender = new Endereco(null, forne, objDto.getEndRua(), objDto.getEndNumero(), objDto.getEndCidade(), objDto.getEndBairro(), objDto.getEndCep(), objDto.getEndEstado(), objDto.getEndPais());
         Contato contat = new Contato(null, forne, objDto.getConCelular(), objDto.getConTelefoneComercial(), objDto.getConEmail());
 
@@ -109,6 +111,8 @@ public class FornecedorService {
         dto.setForNomeFantasia(obj.getForNomeFantasia());
         dto.setForRazaoSocial(obj.getForRazaoSocial());
         dto.setForStatus(obj.getForStatus());
+        dto.setForDataCadastro(obj.getForDataCadastro());
+        dto.setForResponsavel(obj.getForResponsavel());
 
         // Atributos específicos de Fornecedor
         Endereco endereco = obj.getEnderecos().get(0);

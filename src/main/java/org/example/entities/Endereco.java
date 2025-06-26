@@ -42,11 +42,14 @@ public class Endereco implements Serializable {
 
     @Column(name = "END_PAIS", nullable = false, length = 60)
     private String endPais;
+    @Column(name = "END_COMPLEMENTO", nullable = false, length = 60)
+    private String endComplemento;
+    @Column(name = "END_TIPO_RESIDENCIA", nullable = false, length = 60)
+    private String endTipoResidencia;
 
     public Endereco() {
     }
-
-    public Endereco(Long endId, Cliente endCliente, String endRua, String endNumero, String endCidade, String endBairro, String endCep, String endEstado, String endPais) {
+    public Endereco(Long endId, Cliente endCliente, String endRua, String endNumero, String endCidade, String endBairro, String endCep, String endEstado, String endPais, String endComplemento, String endTipoResidencia) {
         this.endId = endId;
         this.endCliente = endCliente;
         this.endRua = endRua;
@@ -56,9 +59,10 @@ public class Endereco implements Serializable {
         this.endCep = endCep;
         this.endEstado = endEstado;
         this.endPais = endPais;
+        this.endComplemento = endComplemento;
+        this.endTipoResidencia = endTipoResidencia;
     }
-
-    public Endereco(Long endId, Fornecedor endFornecedor, String endRua, String endNumero, String endCidade, String endBairro, String endCep, String endEstado, String endPais) {
+    public Endereco(Long endId, Fornecedor endFornecedor, String endRua, String endNumero, String endCidade, String endBairro, String endCep, String endEstado, String endPais, String endComplemento, String endTipoResidencia) {
         this.endId = endId;
         this.endFornecedor = endFornecedor;
         this.endRua = endRua;
@@ -68,85 +72,79 @@ public class Endereco implements Serializable {
         this.endCep = endCep;
         this.endEstado = endEstado;
         this.endPais = endPais;
+        this.endComplemento = endComplemento;
+        this.endTipoResidencia = endTipoResidencia;
     }
-
     public Long getEndId() {
         return endId;
     }
-
     public void setEndId(Long endId) {
         this.endId = endId;
     }
-
     public Cliente getEndCliente() {
         return endCliente;
     }
-
     public void setEndCliente(Cliente endCliente) {
         this.endCliente = endCliente;
     }
-
     public Fornecedor getEndFornecedor() {
         return endFornecedor;
     }
-
     public void setEndFornecedor(Fornecedor endFornecedor) {
         this.endFornecedor = endFornecedor;
     }
-
     public String getEndRua() {
         return endRua;
     }
-
     public void setEndRua(String endRua) {
         this.endRua = endRua;
     }
-
     public String getEndNumero() {
         return endNumero;
     }
-
     public void setEndNumero(String endNumero) {
         this.endNumero = endNumero;
     }
-
     public String getEndCidade() {
         return endCidade;
     }
-
     public void setEndCidade(String endCidade) {
         this.endCidade = endCidade;
     }
-
     public String getEndBairro() {
         return endBairro;
     }
-
     public void setEndBairro(String endBairro) {
         this.endBairro = endBairro;
     }
-
     public String getEndCep() {
         return endCep;
     }
-
     public void setEndCep(String endCep) {
         this.endCep = endCep;
     }
-
     public String getEndEstado() {
         return endEstado;
     }
-
     public void setEndEstado(String endEstado) {
         this.endEstado = endEstado;
     }
-
     public String getEndPais() {
         return endPais;
     }
-
     public void setEndPais(String endPais) {
         this.endPais = endPais;
+    }
+    public String getEndComplemento() {
+        return endComplemento;
+    }
+    public void setEndComplemento(String endComplemento) {
+        this.endComplemento = endComplemento;
+    }
+    public String getEndTipoResidencia() {
+        return endTipoResidencia;
+    }
+    public void setEndTipoResidencia(String endTipoResidencia) {
+        this.endTipoResidencia = endTipoResidencia;
     }
 }
