@@ -21,6 +21,8 @@ public class FornecedorDTO {
     private String endCep;
     private String endEstado;
     private String endPais;
+    private String endComplemento;
+    private String endTipoResidencia;
 
     // Contato
     private String conCelular;
@@ -132,6 +134,22 @@ public class FornecedorDTO {
 
     public void setConTelefoneComercial(String conTelefoneComercial) {
         this.conTelefoneComercial = conTelefoneComercial;
+    }
+
+    public String getEndComplemento() {
+        return endComplemento;
+    }
+
+    public void setEndComplemento(String endComplemento) {
+        this.endComplemento = endComplemento;
+    }
+
+    public String getEndTipoResidencia() {
+        return endTipoResidencia;
+    }
+
+    public void setEndTipoResidencia(String endTipoResidencia) {
+        this.endTipoResidencia = endTipoResidencia;
     }
 
     public String getConEmail() {

@@ -8,12 +8,12 @@ import javax.validation.constraints.Email;
 public class ClienteDTO {
     private Long cliId;
     private String cliNome;
-
     @CPF
     private String cliCpf;
     private String cliStatus;
     private String dataNascimento;
-    private String formaPagamento;
+    private String estadoCivil;
+    private String profissao;
 
     // Endereco
     private String endRua;
@@ -156,14 +156,6 @@ public class ClienteDTO {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getFormaPagamento() {
-        return formaPagamento;
-    }
-
-    public void setFormaPagamento(String formaPagamento) {
-        this.formaPagamento = formaPagamento;
-    }
-
     public String getEndComplemento() {
         return endComplemento;
     }
@@ -178,5 +170,21 @@ public class ClienteDTO {
 
     public void setEndTipoResidencia(String endTipoResidencia) {
         this.endTipoResidencia = endTipoResidencia;
+    }
+
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    public String getProfissao() {
+        return profissao;
+    }
+
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
     }
 }

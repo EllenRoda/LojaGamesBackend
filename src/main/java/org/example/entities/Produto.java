@@ -88,11 +88,14 @@ public class Produto implements Serializable {
     @Column(name = "PRO_ATIVO", nullable = false, length = 10)
     private String proAtivo;
 
+    @NotNull(message = "Campo frete grátis é obrigatório")
+    @Column(name = "PRO_FRETE_GRATIS", nullable = false)
+    private String proFreteGratis;
 
     public Produto() {
     }
 
-    public Produto(Long proId, Fornecedor idFornecedor, String proNome, Double proPrecoCusto, Double proPrecoVenda, String proMarca, String proModelo, Integer proEstoque, String proCor, String proMaterial, String proFabricante, String proDescricao, String proCategoria, String proCodigoBarras, LocalDateTime proDataCadastro, LocalDateTime proDataAtualizacao, String proAtivo) {
+    public Produto(Long proId, Fornecedor idFornecedor, String proNome, Double proPrecoCusto, Double proPrecoVenda, String proMarca, String proModelo, Integer proEstoque, String proCor, String proMaterial, String proFabricante, String proDescricao, String proCategoria, String proCodigoBarras, LocalDateTime proDataCadastro, LocalDateTime proDataAtualizacao, String proAtivo, String proFreteGratis) {
         this.proId = proId;
         this.idFornecedor = idFornecedor;
         this.proNome = proNome;
@@ -110,6 +113,7 @@ public class Produto implements Serializable {
         this.proDataCadastro = proDataCadastro;
         this.proDataAtualizacao = proDataAtualizacao;
         this.proAtivo = proAtivo;
+        this.proFreteGratis = proFreteGratis;
     }
 
     public Long getProId() {
@@ -246,5 +250,13 @@ public class Produto implements Serializable {
 
     public void setProAtivo(String proAtivo) {
         this.proAtivo = proAtivo;
+    }
+
+    public String getProFreteGratis() {
+        return proFreteGratis;
+    }
+
+    public void setProFreteGratis(String proFreteGratis) {
+        this.proFreteGratis = proFreteGratis;
     }
 }

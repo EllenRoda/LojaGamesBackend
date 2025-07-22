@@ -30,20 +30,24 @@ public class Cliente implements Serializable {
 
     @Column(name = "CLI_DATA_NASCIMENTO", nullable = false, length = 60)
     private String dataNascimento;
-    @Column(name = "CLI_FORMA_PAGAMENTO", nullable = false, length = 60)
-    private String formaPagamento;
 
+    @Column(name = "PRO_ESTADO_CIVIL", length = 30, nullable = false)
+    private String estadoCivil;
+
+    @Column(name = "PRO_PROFISSAO", length = 50, nullable = false)
+    private String profissao;
 
     public Cliente() {
     }
 
-    public Cliente(Long cliId, String cliNome, String cliCpf, String cliStatus, String dataNascimento, String formaPagamento) {
+    public Cliente(Long cliId, String cliNome, String cliCpf, String cliStatus, String dataNascimento, String estadoCivil, String profissao) {
         this.cliId = cliId;
         this.cliNome = cliNome;
         this.cliCpf = cliCpf;
         this.cliStatus = cliStatus;
         this.dataNascimento = dataNascimento;
-        this.formaPagamento = formaPagamento;
+        this.estadoCivil = estadoCivil;
+        this.profissao = profissao;
     }
 
     public Long getCliId() {
@@ -98,11 +102,19 @@ public class Cliente implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getFormaPagamento() {
-        return formaPagamento;
+    public String getEstadoCivil() {
+        return estadoCivil;
     }
 
-    public void setFormaPagamento(String formaPagamento) {
-        this.formaPagamento = formaPagamento;
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    public String getProfissao() {
+        return profissao;
+    }
+
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
     }
 }

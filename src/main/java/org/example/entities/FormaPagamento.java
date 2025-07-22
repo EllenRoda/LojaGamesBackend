@@ -48,11 +48,16 @@ public class FormaPagamento  implements Serializable {
     @Column(name = "FPG_TAXA_ADICIONA", precision = 10, scale = 2, nullable = false)
     private BigDecimal fpgTaxaAdiciona;
 
+    @Column(name = "FPG_ACEITA_CARTAO_INTERNACIONAL", nullable = false)
+    private String fpgAceitaCartaoInternacional;
+
+    @Column(name = "FPG_COMPROVANTE_NECESSARIO", nullable = false)
+    private String fpgComprovanteNecessario;
 
     public FormaPagamento() {
     }
 
-    public FormaPagamento(Long fpgId, String fpgDescricao, String fpgStatus, String fpgPermiteParcelamento, Integer fpgNumeroMaximoParcelas, String fpgTipo, Integer fpgQtdParcela, BigDecimal fpgTaxaAdiciona) {
+    public FormaPagamento(Long fpgId, String fpgDescricao, String fpgStatus, String fpgPermiteParcelamento, Integer fpgNumeroMaximoParcelas, String fpgTipo, Integer fpgQtdParcela, BigDecimal fpgTaxaAdiciona, String fpgAceitaCartaoInternacional, String fpgComprovanteNecessario) {
         this.fpgId = fpgId;
         this.fpgDescricao = fpgDescricao;
         this.fpgStatus = fpgStatus;
@@ -61,6 +66,8 @@ public class FormaPagamento  implements Serializable {
         this.fpgTipo = fpgTipo;
         this.fpgQtdParcela = fpgQtdParcela;
         this.fpgTaxaAdiciona = fpgTaxaAdiciona;
+        this.fpgAceitaCartaoInternacional = fpgAceitaCartaoInternacional;
+        this.fpgComprovanteNecessario = fpgComprovanteNecessario;
     }
 
     public Long getFpgId() {
@@ -120,5 +127,21 @@ public class FormaPagamento  implements Serializable {
 
     public void setFpgTaxaAdiciona(BigDecimal fpgTaxaAdiciona) {
         this.fpgTaxaAdiciona = fpgTaxaAdiciona;
+    }
+
+    public String getFpgAceitaCartaoInternacional() {
+        return fpgAceitaCartaoInternacional;
+    }
+
+    public void setFpgAceitaCartaoInternacional(String fpgAceitaCartaoInternacional) {
+        this.fpgAceitaCartaoInternacional = fpgAceitaCartaoInternacional;
+    }
+
+    public String getFpgComprovanteNecessario() {
+        return fpgComprovanteNecessario;
+    }
+
+    public void setFpgComprovanteNecessario(String fpgComprovanteNecessario) {
+        this.fpgComprovanteNecessario = fpgComprovanteNecessario;
     }
 }

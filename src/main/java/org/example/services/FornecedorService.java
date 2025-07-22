@@ -94,7 +94,7 @@ public class FornecedorService {
 
     public Fornecedor fromDTO(FornecedorDTO objDto){
         Fornecedor forne = new Fornecedor(null, objDto.getForNomeFantasia(), objDto.getForRazaoSocial(), objDto.getForStatus(), objDto.getForDataCadastro(), objDto.getForResponsavel());
-        Endereco ender = new Endereco(null, forne, objDto.getEndRua(), objDto.getEndNumero(), objDto.getEndCidade(), objDto.getEndBairro(), objDto.getEndCep(), objDto.getEndEstado(), objDto.getEndPais());
+        Endereco ender = new Endereco(null, forne, objDto.getEndRua(), objDto.getEndNumero(), objDto.getEndCidade(), objDto.getEndBairro(), objDto.getEndCep(), objDto.getEndEstado(), objDto.getEndPais(), objDto.getEndComplemento(), objDto.getEndTipoResidencia());
         Contato contat = new Contato(null, forne, objDto.getConCelular(), objDto.getConTelefoneComercial(), objDto.getConEmail());
 
         forne.getEnderecos().add(ender);
