@@ -26,11 +26,11 @@ public class Contato implements Serializable {
     @JoinColumn(name = "CON_FOR_ID")
     private Fornecedor conFornecedor;
 
-    @Pattern(regexp = "\\(\\d{2}\\)\\d{5}-\\d{4}", message = "Celular deve estar no formato (xx)xxxxx-xxxx")
+    //@Pattern(regexp = "\\(\\d{2}\\)\\d{5}-\\d{4}", message = "Celular deve estar no formato (xx)xxxxx-xxxx")
     @Column(name = "CON_CELULAR", length = 14)
     private String conCelular;
 
-    @Pattern(regexp = "\\(\\d{2}\\)\\d{4}-\\d{4}", message = "Telefone Comercial deve estar no formato (xx)xxxxx-xxxx")
+    //@Pattern(regexp = "\\(\\d{2}\\)\\d{4}-\\d{4}", message = "Telefone Comercial deve estar no formato (xx)xxxxx-xxxx")
     @Column(name = "CON_TELEFONE_COMERCIAL", length = 14)
     private String conTelefoneComercial;
 
