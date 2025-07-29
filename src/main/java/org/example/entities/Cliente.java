@@ -22,7 +22,7 @@ public class Cliente implements Serializable {
     @Column(name = "CLI_NOME", nullable = false, length = 100)
     private String cliNome;
 
-    @Column(name = "CLI_CPF", nullable = false, unique = true, length = 15)
+    @Column(name = "CLI_CPF", nullable = false, length = 15)
     private String cliCpf;
 
     @Column(name = "CLI_STATUS", nullable = false, length = 60)

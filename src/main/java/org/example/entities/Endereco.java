@@ -37,7 +37,7 @@ public class Endereco implements Serializable {
     @Column(name = "END_CEP", nullable = false, length = 9)
     private String endCep;
 
-    @Column(name = "END_ESTADO", nullable = false, length = 2)
+    @Column(name = "END_ESTADO", nullable = false)
     private String endEstado;
 
     @Column(name = "END_PAIS", nullable = false, length = 60)

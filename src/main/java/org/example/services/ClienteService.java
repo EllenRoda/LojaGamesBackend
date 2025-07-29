@@ -49,8 +49,8 @@ public class ClienteService {
             // Atualiza os dados do Cliente
             entity.setCliNome(objDto.getCliNome());
             entity.setCliCpf(objDto.getCliCpf());
-            entity.setDataNascimento(objDto.getDataNascimento());
             entity.setCliStatus(objDto.getCliStatus());
+            entity.setDataNascimento(objDto.getDataNascimento());
             entity.setEstadoCivil(objDto.getEndEstado());
             entity.setProfissao(objDto.getProfissao());
 
