@@ -30,6 +30,9 @@ public class Fornecedor implements Serializable {
     @Column(name = "FOR_RAZAO_SOCIAL", nullable = false, length = 100)
     private String forRazaoSocial;
 
+    @Column(name = "FOR_CPF", nullable = false, length = 15)
+    private String forCpf;
+
     @Column(name = "FOR_STATUS", nullable = false, length = 60)
     private String forStatus;
 
@@ -42,10 +45,11 @@ public class Fornecedor implements Serializable {
     public Fornecedor() {
     }
 
-    public Fornecedor(Long forId, String forNomeFantasia, String forRazaoSocial, String forStatus, LocalDateTime forDataCadastro, String forResponsavel) {
+    public Fornecedor(Long forId, String forNomeFantasia, String forRazaoSocial, String forCpf, String forStatus, LocalDateTime forDataCadastro, String forResponsavel) {
         this.forId = forId;
         this.forNomeFantasia = forNomeFantasia;
         this.forRazaoSocial = forRazaoSocial;
+        this.forCpf = forCpf;
         this.forStatus = forStatus;
         this.forDataCadastro = forDataCadastro;
         this.forResponsavel = forResponsavel;
@@ -113,5 +117,13 @@ public class Fornecedor implements Serializable {
 
     public void setForResponsavel(String forResponsavel) {
         this.forResponsavel = forResponsavel;
+    }
+
+    public String getForCpf() {
+        return forCpf;
+    }
+
+    public void setForCpf(String forCpf) {
+        this.forCpf = forCpf;
     }
 }

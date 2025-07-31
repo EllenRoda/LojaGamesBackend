@@ -12,6 +12,7 @@ public class FornecedorDTO {
     private String forStatus;
     private LocalDateTime forDataCadastro;
     private String forResponsavel;
+    private String forCpf;
 
     // Endereco
     private String endRua;
@@ -174,5 +175,13 @@ public class FornecedorDTO {
 
     public void setForResponsavel(String forResponsavel) {
         this.forResponsavel = forResponsavel;
+    }
+
+    public String getForCpf() {
+        return forCpf;
+    }
+
+    public void setForCpf(String forCpf) {
+        this.forCpf = forCpf;
     }
 }
