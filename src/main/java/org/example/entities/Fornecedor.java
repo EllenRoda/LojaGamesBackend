@@ -30,6 +30,9 @@ public class Fornecedor implements Serializable {
     @Column(name = "FOR_RAZAO_SOCIAL", nullable = false, length = 100)
     private String forRazaoSocial;
 
+    @Column(name = "FOR_TELEFONE", length = 20)
+    private String forTelefone;
+
     @Column(name = "FOR_CPF", nullable = false, length = 15)
     private String forCpf;
 
@@ -45,10 +48,11 @@ public class Fornecedor implements Serializable {
     public Fornecedor() {
     }
 
-    public Fornecedor(Long forId, String forNomeFantasia, String forRazaoSocial, String forCpf, String forStatus, LocalDateTime forDataCadastro, String forResponsavel) {
+    public Fornecedor(Long forId, String forNomeFantasia, String forRazaoSocial, String forTelefone, String forCpf, String forStatus, LocalDateTime forDataCadastro, String forResponsavel) {
         this.forId = forId;
         this.forNomeFantasia = forNomeFantasia;
         this.forRazaoSocial = forRazaoSocial;
+        this.forTelefone = forTelefone;
         this.forCpf = forCpf;
         this.forStatus = forStatus;
         this.forDataCadastro = forDataCadastro;
@@ -61,30 +65,6 @@ public class Fornecedor implements Serializable {
 
     public void setForId(Long forId) {
         this.forId = forId;
-    }
-
-    public String getForNomeFantasia() {
-        return forNomeFantasia;
-    }
-
-    public void setForNomeFantasia(String forNomeFantasia) {
-        this.forNomeFantasia = forNomeFantasia;
-    }
-
-    public String getForRazaoSocial() {
-        return forRazaoSocial;
-    }
-
-    public void setForRazaoSocial(String forRazaoSocial) {
-        this.forRazaoSocial = forRazaoSocial;
-    }
-
-    public String getForStatus() {
-        return forStatus;
-    }
-
-    public void setForStatus(String forStatus) {
-        this.forStatus = forStatus;
     }
 
     public List<Endereco> getEnderecos() {
@@ -103,6 +83,46 @@ public class Fornecedor implements Serializable {
         this.contatos = contatos;
     }
 
+    public String getForNomeFantasia() {
+        return forNomeFantasia;
+    }
+
+    public void setForNomeFantasia(String forNomeFantasia) {
+        this.forNomeFantasia = forNomeFantasia;
+    }
+
+    public String getForRazaoSocial() {
+        return forRazaoSocial;
+    }
+
+    public void setForRazaoSocial(String forRazaoSocial) {
+        this.forRazaoSocial = forRazaoSocial;
+    }
+
+    public String getForTelefone() {
+        return forTelefone;
+    }
+
+    public void setForTelefone(String forTelefone) {
+        this.forTelefone = forTelefone;
+    }
+
+    public String getForCpf() {
+        return forCpf;
+    }
+
+    public void setForCpf(String forCpf) {
+        this.forCpf = forCpf;
+    }
+
+    public String getForStatus() {
+        return forStatus;
+    }
+
+    public void setForStatus(String forStatus) {
+        this.forStatus = forStatus;
+    }
+
     public LocalDateTime getForDataCadastro() {
         return forDataCadastro;
     }
@@ -117,13 +137,5 @@ public class Fornecedor implements Serializable {
 
     public void setForResponsavel(String forResponsavel) {
         this.forResponsavel = forResponsavel;
-    }
-
-    public String getForCpf() {
-        return forCpf;
-    }
-
-    public void setForCpf(String forCpf) {
-        this.forCpf = forCpf;
     }
 }

@@ -1,5 +1,7 @@
 package org.example.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
@@ -37,30 +39,10 @@ public class Produto implements Serializable {
     @Column(name = "PRO_MARCA", length = 50, nullable = false)
     private String proMarca;
 
-    @NotBlank(message = "Modelo obrigatorio")
-    @Size(max = 50, message = "Modelo deve ter no máximo 50 caracteres")
-    @Column(name = "PRO_MODELO", length = 50, nullable = false)
-    private String proModelo;
-
     @NotNull(message = "Estoque obrigatorio")
     @Min(value = 0, message = "Estoque não pode ser negativo")
     @Column(name = "PRO_ESTOQUE", nullable = false)
     private Integer proEstoque;
-
-    @NotBlank(message = "Cor é obrigatória")
-    @Size(max = 30, message = "Cor deve ter no máximo 30 caracteres")
-    @Column(name = "PRO_COR", length = 30, nullable = false)
-    private String proCor;
-
-    @NotBlank(message = "Material é obrigatória")
-    @Size(max = 50, message = "Material deve ter no máximo 50 caracteres")
-    @Column(name = "PRO_MATERIAL", length = 50, nullable = false)
-    private String proMaterial;
-
-    @NotBlank(message = "Fabricante é obrigatória")
-    @Size(max = 100, message = "Fabricante deve ter no máximo 100 caracteres")
-    @Column(name = "PRO_FABRICANTE", length = 100, nullable = false)
-    private String proFabricante;
 
     @NotBlank(message = "Descrição é obrigatória")
     @Size(max = 255, message = "Descrição deve ter no máximo 255 caracteres")
@@ -77,10 +59,12 @@ public class Produto implements Serializable {
     @Column(name = "PRO_CODIGO_BARRAS", length = 30, nullable = false)
     private String proCodigoBarras;
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(name = "PRO_DATA_CADASTRO", nullable = false)
     private LocalDateTime proDataCadastro;
 
-    @Column(name = "PRO_DATA_ATUALIZACAO")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @Column(name = "PRO_DATA_ATUALIZACAO", nullable = false)
     private LocalDateTime proDataAtualizacao;
 
     @NotBlank(message = "Status Ativo é obrigatório")
@@ -95,18 +79,14 @@ public class Produto implements Serializable {
     public Produto() {
     }
 
-    public Produto(Long proId, Fornecedor idFornecedor, String proNome, Double proPrecoCusto, Double proPrecoVenda, String proMarca, String proModelo, Integer proEstoque, String proCor, String proMaterial, String proFabricante, String proDescricao, String proCategoria, String proCodigoBarras, LocalDateTime proDataCadastro, LocalDateTime proDataAtualizacao, String proAtivo, String proFreteGratis) {
+    public Produto(Long proId, Fornecedor idFornecedor, String proNome, Double proPrecoCusto, Double proPrecoVenda, String proMarca, Integer proEstoque, String proDescricao, String proCategoria, String proCodigoBarras, LocalDateTime proDataCadastro, LocalDateTime proDataAtualizacao, String proAtivo, String proFreteGratis) {
         this.proId = proId;
         this.idFornecedor = idFornecedor;
         this.proNome = proNome;
         this.proPrecoCusto = proPrecoCusto;
         this.proPrecoVenda = proPrecoVenda;
         this.proMarca = proMarca;
-        this.proModelo = proModelo;
         this.proEstoque = proEstoque;
-        this.proCor = proCor;
-        this.proMaterial = proMaterial;
-        this.proFabricante = proFabricante;
         this.proDescricao = proDescricao;
         this.proCategoria = proCategoria;
         this.proCodigoBarras = proCodigoBarras;
@@ -164,44 +144,12 @@ public class Produto implements Serializable {
         this.proMarca = proMarca;
     }
 
-    public String getProModelo() {
-        return proModelo;
-    }
-
-    public void setProModelo(String proModelo) {
-        this.proModelo = proModelo;
-    }
-
     public Integer getProEstoque() {
         return proEstoque;
     }
 
     public void setProEstoque(Integer proEstoque) {
         this.proEstoque = proEstoque;
-    }
-
-    public String getProCor() {
-        return proCor;
-    }
-
-    public void setProCor(String proCor) {
-        this.proCor = proCor;
-    }
-
-    public String getProMaterial() {
-        return proMaterial;
-    }
-
-    public void setProMaterial(String proMaterial) {
-        this.proMaterial = proMaterial;
-    }
-
-    public String getProFabricante() {
-        return proFabricante;
-    }
-
-    public void setProFabricante(String proFabricante) {
-        this.proFabricante = proFabricante;
     }
 
     public String getProDescricao() {

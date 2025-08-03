@@ -37,10 +37,7 @@ public class FormaPagamentoService {
             formaPagamentoSistema.setFpgPermiteParcelamento(formaPagamento.getFpgPermiteParcelamento());
             formaPagamentoSistema.setFpgNumeroMaximoParcelas(formaPagamento.getFpgNumeroMaximoParcelas());
             formaPagamentoSistema.setFpgTipo(formaPagamento.getFpgTipo());
-            formaPagamentoSistema.setFpgQtdParcela(formaPagamento.getFpgQtdParcela());
             formaPagamentoSistema.setFpgTaxaAdiciona(formaPagamento.getFpgTaxaAdiciona());
-            formaPagamentoSistema.setFpgAceitaCartaoInternacional(formaPagamento.getFpgAceitaCartaoInternacional());
-            formaPagamentoSistema.setFpgComprovanteNecessario(formaPagamento.getFpgComprovanteNecessario());
             repository.save(formaPagamentoSistema);
             return true;
         }

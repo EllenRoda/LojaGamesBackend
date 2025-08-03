@@ -6,35 +6,29 @@ import javax.persistence.Column;
 import javax.validation.constraints.Email;
 
 public class ClienteDTO {
+
+    // --- Cliente ---
     private Long cliId;
     private String cliNome;
     @CPF
     private String cliCpf;
     private String cliStatus;
-    private String dataNascimento;
-    private String estadoCivil;
-    private String profissao;
 
-    // Endereco
+    // --- Endereco ---
     private String endRua;
     private String endNumero;
     private String endCidade;
     private String endBairro;
     private String endCep;
     private String endEstado;
-    private String endPais;
-    private String endComplemento;
-    private String endTipoResidencia;
 
-    // Contato
+    // --- Contato ---
     private String conCelular;
     private String conTelefoneComercial;
-
     @Email
     private String conEmail;
 
-    public ClienteDTO() {
-    }
+    public ClienteDTO() { }
 
     public Long getCliId() {
         return cliId;
@@ -116,14 +110,6 @@ public class ClienteDTO {
         this.endEstado = endEstado;
     }
 
-    public String getEndPais() {
-        return endPais;
-    }
-
-    public void setEndPais(String endPais) {
-        this.endPais = endPais;
-    }
-
     public String getConCelular() {
         return conCelular;
     }
@@ -146,45 +132,5 @@ public class ClienteDTO {
 
     public void setConEmail(String conEmail) {
         this.conEmail = conEmail;
-    }
-
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getEndComplemento() {
-        return endComplemento;
-    }
-
-    public void setEndComplemento(String endComplemento) {
-        this.endComplemento = endComplemento;
-    }
-
-    public String getEndTipoResidencia() {
-        return endTipoResidencia;
-    }
-
-    public void setEndTipoResidencia(String endTipoResidencia) {
-        this.endTipoResidencia = endTipoResidencia;
-    }
-
-    public String getEstadoCivil() {
-        return estadoCivil;
-    }
-
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
-    }
-
-    public String getProfissao() {
-        return profissao;
-    }
-
-    public void setProfissao(String profissao) {
-        this.profissao = profissao;
     }
 }

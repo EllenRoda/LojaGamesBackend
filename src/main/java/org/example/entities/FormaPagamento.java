@@ -40,34 +40,21 @@ public class FormaPagamento  implements Serializable {
     @Column(name = "FPG_TIPO", nullable = false, length = 30)
     private String fpgTipo;
 
-    @Min(value = 1, message = "Quantidade de parcelas deve ser no mínimo 1")
-    @Column(name = "FPG_QTD_PARCELA", nullable = false)
-    private Integer fpgQtdParcela;
-
     @DecimalMin(value = "0.0", inclusive = true, message = "Taxa adicional deve ser maior ou igual a zero")
     @Column(name = "FPG_TAXA_ADICIONA", precision = 10, scale = 2, nullable = false)
     private BigDecimal fpgTaxaAdiciona;
 
-    @Column(name = "FPG_ACEITA_CARTAO_INTERNACIONAL", nullable = false)
-    private String fpgAceitaCartaoInternacional;
-
-    @Column(name = "FPG_COMPROVANTE_NECESSARIO", nullable = false)
-    private String fpgComprovanteNecessario;
-
     public FormaPagamento() {
     }
 
-    public FormaPagamento(Long fpgId, String fpgDescricao, String fpgStatus, String fpgPermiteParcelamento, Integer fpgNumeroMaximoParcelas, String fpgTipo, Integer fpgQtdParcela, BigDecimal fpgTaxaAdiciona, String fpgAceitaCartaoInternacional, String fpgComprovanteNecessario) {
+    public FormaPagamento(Long fpgId, String fpgDescricao, String fpgStatus, String fpgPermiteParcelamento, Integer fpgNumeroMaximoParcelas, String fpgTipo, BigDecimal fpgTaxaAdiciona) {
         this.fpgId = fpgId;
         this.fpgDescricao = fpgDescricao;
         this.fpgStatus = fpgStatus;
         this.fpgPermiteParcelamento = fpgPermiteParcelamento;
         this.fpgNumeroMaximoParcelas = fpgNumeroMaximoParcelas;
         this.fpgTipo = fpgTipo;
-        this.fpgQtdParcela = fpgQtdParcela;
         this.fpgTaxaAdiciona = fpgTaxaAdiciona;
-        this.fpgAceitaCartaoInternacional = fpgAceitaCartaoInternacional;
-        this.fpgComprovanteNecessario = fpgComprovanteNecessario;
     }
 
     public Long getFpgId() {
@@ -86,8 +73,13 @@ public class FormaPagamento  implements Serializable {
         this.fpgDescricao = fpgDescricao;
     }
 
-    public String getFpgStatus() { return fpgStatus; }
-    public void setFpgStatus(String fpgStatus) { this.fpgStatus = fpgStatus; }
+    public String getFpgStatus() {
+        return fpgStatus;
+    }
+
+    public void setFpgStatus(String fpgStatus) {
+        this.fpgStatus = fpgStatus;
+    }
 
     public String getFpgPermiteParcelamento() {
         return fpgPermiteParcelamento;
@@ -113,35 +105,11 @@ public class FormaPagamento  implements Serializable {
         this.fpgTipo = fpgTipo;
     }
 
-    public Integer getFpgQtdParcela() {
-        return fpgQtdParcela;
-    }
-
-    public void setFpgQtdParcela(Integer fpgQtdParcela) {
-        this.fpgQtdParcela = fpgQtdParcela;
-    }
-
     public BigDecimal getFpgTaxaAdiciona() {
         return fpgTaxaAdiciona;
     }
 
     public void setFpgTaxaAdiciona(BigDecimal fpgTaxaAdiciona) {
         this.fpgTaxaAdiciona = fpgTaxaAdiciona;
-    }
-
-    public String getFpgAceitaCartaoInternacional() {
-        return fpgAceitaCartaoInternacional;
-    }
-
-    public void setFpgAceitaCartaoInternacional(String fpgAceitaCartaoInternacional) {
-        this.fpgAceitaCartaoInternacional = fpgAceitaCartaoInternacional;
-    }
-
-    public String getFpgComprovanteNecessario() {
-        return fpgComprovanteNecessario;
-    }
-
-    public void setFpgComprovanteNecessario(String fpgComprovanteNecessario) {
-        this.fpgComprovanteNecessario = fpgComprovanteNecessario;
     }
 }

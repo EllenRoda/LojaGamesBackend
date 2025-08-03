@@ -22,32 +22,20 @@ public class Cliente implements Serializable {
     @Column(name = "CLI_NOME", nullable = false, length = 100)
     private String cliNome;
 
-    @Column(name = "CLI_CPF", nullable = false, length = 15)
+    @Column(name = "CLI_CPF", nullable = false, length = 15, unique = true)
     private String cliCpf;
 
     @Column(name = "CLI_STATUS", nullable = false, length = 60)
     private String cliStatus;
 
-    @Column(name = "CLI_DATA_NASCIMENTO", nullable = false, length = 60)
-    private String dataNascimento;
-
-    @Column(name = "PRO_ESTADO_CIVIL", length = 30, nullable = false)
-    private String estadoCivil;
-
-    @Column(name = "PRO_PROFISSAO", length = 50, nullable = false)
-    private String profissao;
-
     public Cliente() {
     }
 
-    public Cliente(Long cliId, String cliNome, String cliCpf, String cliStatus, String dataNascimento, String estadoCivil, String profissao) {
+    public Cliente(Long cliId, String cliNome, String cliCpf, String cliStatus) {
         this.cliId = cliId;
         this.cliNome = cliNome;
         this.cliCpf = cliCpf;
         this.cliStatus = cliStatus;
-        this.dataNascimento = dataNascimento;
-        this.estadoCivil = estadoCivil;
-        this.profissao = profissao;
     }
 
     public Long getCliId() {
@@ -56,6 +44,22 @@ public class Cliente implements Serializable {
 
     public void setCliId(Long cliId) {
         this.cliId = cliId;
+    }
+
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
+    }
+
+    public List<Contato> getContatos() {
+        return contatos;
+    }
+
+    public void setContatos(List<Contato> contatos) {
+        this.contatos = contatos;
     }
 
     public String getCliNome() {
@@ -74,47 +78,11 @@ public class Cliente implements Serializable {
         this.cliCpf = cliCpf;
     }
 
-    public String getCliStatus() { return cliStatus; }
-
-    public void setCliStatus(String cliStatus) { this.cliStatus = cliStatus; }
-
-    public List<Endereco> getEnderecos() {
-        return enderecos;
+    public String getCliStatus() {
+        return cliStatus;
     }
 
-    public void setEnderecos(List<Endereco> enderecos) {
-        this.enderecos = enderecos;
-    }
-
-    public List<Contato> getContatos() {
-        return contatos;
-    }
-
-    public void setContatos(List<Contato> contatos) {
-        this.contatos = contatos;
-    }
-
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getEstadoCivil() {
-        return estadoCivil;
-    }
-
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
-    }
-
-    public String getProfissao() {
-        return profissao;
-    }
-
-    public void setProfissao(String profissao) {
-        this.profissao = profissao;
+    public void setCliStatus(String cliStatus) {
+        this.cliStatus = cliStatus;
     }
 }
