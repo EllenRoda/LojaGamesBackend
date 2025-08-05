@@ -32,12 +32,10 @@ public class FormaPagamentoService {
         Optional<FormaPagamento> optionalFormaPagamento = repository.findById(id);
         if (optionalFormaPagamento.isPresent()) {
             FormaPagamento formaPagamentoSistema = optionalFormaPagamento.get();
+            formaPagamentoSistema.setFpgCredito(formaPagamento.getFpgCredito());
+            formaPagamentoSistema.setFpgFechamento(formaPagamento.getFpgFechamento());
             formaPagamentoSistema.setFpgDescricao(formaPagamento.getFpgDescricao());
             formaPagamentoSistema.setFpgStatus(formaPagamento.getFpgStatus());
-            formaPagamentoSistema.setFpgPermiteParcelamento(formaPagamento.getFpgPermiteParcelamento());
-            formaPagamentoSistema.setFpgNumeroMaximoParcelas(formaPagamento.getFpgNumeroMaximoParcelas());
-            formaPagamentoSistema.setFpgTipo(formaPagamento.getFpgTipo());
-            formaPagamentoSistema.setFpgTaxaAdiciona(formaPagamento.getFpgTaxaAdiciona());
             repository.save(formaPagamentoSistema);
             return true;
         }

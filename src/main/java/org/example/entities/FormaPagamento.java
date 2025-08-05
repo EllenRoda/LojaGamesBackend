@@ -16,45 +16,35 @@ public class FormaPagamento  implements Serializable {
     @Column(name = "FPG_ID")
     private Long fpgId;
 
+    @NotBlank(message = "Crédito é obrigatória")
+    @Size(max = 100, message = "Crédito deve ter no máximo 100 caracteres")
+    @Column(name = "FPG_CREDITO", nullable = false, length = 10)
+    private String fpgCredito;
+
+    @NotBlank(message = "Fechamento é obrigatória")
+    @Size(max = 10, message = "Fechamento deve ter no máximo 100 caracteres")
+    @Column(name = "FPG_FECHAMENTO", nullable = false, length = 10)
+    private String fpgFechamento;
+
     @NotBlank(message = "Descrição é obrigatória")
     @Size(max = 100, message = "Descrição deve ter no máximo 100 caracteres")
-    @Column(name = "FPG_DESCRICAO", nullable = false, length = 100)
+    @Column(name = "FPG_DESCRICAO", length = 100)
     private String fpgDescricao;
 
     @NotBlank(message = "Status é obrigatório")
-    @Size(max = 60, message = "Status deve ter no máximo 60 caracteres")
-    @Column(name = "FPG_STATUS", nullable = false, length = 60)
+    @Size(max = 15, message = "Status deve ter no máximo 60 caracteres")
+    @Column(name = "FPG_STATUS", nullable = false, length = 15)
     private String fpgStatus;
-
-    @NotBlank(message = "Permitir Parcelamento é obrigatório")
-    @Size(max = 3, message = "Valor deve ter no máximo 3 caracteres (Sim ou Não)")
-    @Column(name = "FPG_PERMITE_PARCELAMENTO", nullable = false, length = 3)
-    private String fpgPermiteParcelamento;
-
-    @Min(value = 1, message = "Número máximo de parcelas deve ser no mínimo 1")
-    @Column(name = "FPG_NUMERO_MAXIMO_PARCELAS", nullable = false)
-    private Integer fpgNumeroMaximoParcelas;
-
-    @NotBlank(message = "Tipo é obrigatório")
-    @Size(max = 30, message = "Tipo deve ter no máximo 30 caracteres")
-    @Column(name = "FPG_TIPO", nullable = false, length = 30)
-    private String fpgTipo;
-
-    @DecimalMin(value = "0.0", inclusive = true, message = "Taxa adicional deve ser maior ou igual a zero")
-    @Column(name = "FPG_TAXA_ADICIONA", precision = 10, scale = 2, nullable = false)
-    private BigDecimal fpgTaxaAdiciona;
 
     public FormaPagamento() {
     }
 
-    public FormaPagamento(Long fpgId, String fpgDescricao, String fpgStatus, String fpgPermiteParcelamento, Integer fpgNumeroMaximoParcelas, String fpgTipo, BigDecimal fpgTaxaAdiciona) {
+    public FormaPagamento(Long fpgId, String fpgCredito, String fpgFechamento, String fpgDescricao, String fpgStatus) {
         this.fpgId = fpgId;
+        this.fpgCredito = fpgCredito;
+        this.fpgFechamento = fpgFechamento;
         this.fpgDescricao = fpgDescricao;
         this.fpgStatus = fpgStatus;
-        this.fpgPermiteParcelamento = fpgPermiteParcelamento;
-        this.fpgNumeroMaximoParcelas = fpgNumeroMaximoParcelas;
-        this.fpgTipo = fpgTipo;
-        this.fpgTaxaAdiciona = fpgTaxaAdiciona;
     }
 
     public Long getFpgId() {
@@ -63,6 +53,22 @@ public class FormaPagamento  implements Serializable {
 
     public void setFpgId(Long fpgId) {
         this.fpgId = fpgId;
+    }
+
+    public String getFpgCredito() {
+        return fpgCredito;
+    }
+
+    public void setFpgCredito(String fpgCredito) {
+        this.fpgCredito = fpgCredito;
+    }
+
+    public String getFpgFechamento() {
+        return fpgFechamento;
+    }
+
+    public void setFpgFechamento(String fpgFechamento) {
+        this.fpgFechamento = fpgFechamento;
     }
 
     public String getFpgDescricao() {
@@ -79,37 +85,5 @@ public class FormaPagamento  implements Serializable {
 
     public void setFpgStatus(String fpgStatus) {
         this.fpgStatus = fpgStatus;
-    }
-
-    public String getFpgPermiteParcelamento() {
-        return fpgPermiteParcelamento;
-    }
-
-    public void setFpgPermiteParcelamento(String fpgPermiteParcelamento) {
-        this.fpgPermiteParcelamento = fpgPermiteParcelamento;
-    }
-
-    public Integer getFpgNumeroMaximoParcelas() {
-        return fpgNumeroMaximoParcelas;
-    }
-
-    public void setFpgNumeroMaximoParcelas(Integer fpgNumeroMaximoParcelas) {
-        this.fpgNumeroMaximoParcelas = fpgNumeroMaximoParcelas;
-    }
-
-    public String getFpgTipo() {
-        return fpgTipo;
-    }
-
-    public void setFpgTipo(String fpgTipo) {
-        this.fpgTipo = fpgTipo;
-    }
-
-    public BigDecimal getFpgTaxaAdiciona() {
-        return fpgTaxaAdiciona;
-    }
-
-    public void setFpgTaxaAdiciona(BigDecimal fpgTaxaAdiciona) {
-        this.fpgTaxaAdiciona = fpgTaxaAdiciona;
     }
 }
