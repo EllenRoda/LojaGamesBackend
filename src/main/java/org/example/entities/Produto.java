@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 public class Produto implements Serializable {
@@ -59,13 +60,11 @@ public class Produto implements Serializable {
     @Column(name = "PRO_CODIGO_BARRAS", length = 30, nullable = false)
     private String proCodigoBarras;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(name = "PRO_DATA_CADASTRO", nullable = false)
-    private LocalDateTime proDataCadastro;
+    private Date proDataCadastro;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(name = "PRO_DATA_ATUALIZACAO", nullable = false)
-    private LocalDateTime proDataAtualizacao;
+    private Date proDataAtualizacao;
 
     @NotBlank(message = "Status Ativo é obrigatório")
     @Size(max = 10, message = "Status Ativo deve ter no máximo 10 caracteres")
@@ -79,7 +78,7 @@ public class Produto implements Serializable {
     public Produto() {
     }
 
-    public Produto(Long proId, Fornecedor idFornecedor, String proNome, Double proPrecoCusto, Double proPrecoVenda, String proMarca, Integer proEstoque, String proDescricao, String proCategoria, String proCodigoBarras, LocalDateTime proDataCadastro, LocalDateTime proDataAtualizacao, String proAtivo, String proFreteGratis) {
+    public Produto(Long proId, Fornecedor idFornecedor, String proNome, Double proPrecoCusto, Double proPrecoVenda, String proMarca, Integer proEstoque, String proDescricao, String proCategoria, String proCodigoBarras, Date proDataCadastro, Date proDataAtualizacao, String proAtivo, String proFreteGratis) {
         this.proId = proId;
         this.idFornecedor = idFornecedor;
         this.proNome = proNome;
@@ -176,19 +175,19 @@ public class Produto implements Serializable {
         this.proCodigoBarras = proCodigoBarras;
     }
 
-    public LocalDateTime getProDataCadastro() {
+    public Date getProDataCadastro() {
         return proDataCadastro;
     }
 
-    public void setProDataCadastro(LocalDateTime proDataCadastro) {
+    public void setProDataCadastro(Date proDataCadastro) {
         this.proDataCadastro = proDataCadastro;
     }
 
-    public LocalDateTime getProDataAtualizacao() {
+    public Date getProDataAtualizacao() {
         return proDataAtualizacao;
     }
 
-    public void setProDataAtualizacao(LocalDateTime proDataAtualizacao) {
+    public void setProDataAtualizacao(Date proDataAtualizacao) {
         this.proDataAtualizacao = proDataAtualizacao;
     }
 

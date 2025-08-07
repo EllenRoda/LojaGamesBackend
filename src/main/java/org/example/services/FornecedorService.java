@@ -53,7 +53,6 @@ public class FornecedorService {
             entity.setForTelefone(objDto.getForTelefone());
             entity.setForCpf(objDto.getForCpf());
             entity.setForStatus(objDto.getForStatus());
-            entity.setForDataCadastro(objDto.getForDataCadastro());
             entity.setForResponsavel(objDto.getForResponsavel());
 
             // Atualiza o Endereço do Fornecedor

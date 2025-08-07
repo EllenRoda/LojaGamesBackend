@@ -4,6 +4,7 @@ package org.example.dto;
 
 import javax.persistence.Column;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class FornecedorDTO {
 
